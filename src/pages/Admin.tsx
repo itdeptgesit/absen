@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Users, Search, Download, Lock, Clipboard, Trash2, Network, Building2, UserCheck, UserX } from 'lucide-react';
+import { Users, Search, Download, Lock, Clipboard, Network, Building2, UserCheck } from 'lucide-react';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhPNwvim4QnkY-kFHWjR9b-WhYd-vcZxwgq2k1NbVYt22dl17GkNx6jKZv986SKB2MXA/exec';
 const ADMIN_PASSWORD = 'Gesit@123';
@@ -27,7 +27,7 @@ function formatTimestamp(ts: string) {
 export default function Admin() {
   const [data, setData] = useState<Attendee[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Network, Building2, Users, Monitor, Fingerprint, Stethoscope, AlertCircle, CheckCircle2, RefreshCw, Megaphone, MapPin, Clock, X } from 'lucide-react';
+import { User, Network, Building2, Users, Monitor, Fingerprint, Stethoscope, AlertCircle, CheckCircle2, Megaphone, MapPin, Clock, X } from 'lucide-react';
 
 // TODO: Ganti URL ini dengan URL Web App dari Google Apps Script Anda setelah di-deploy
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhPNwvim4QnkY-kFHWjR9b-WhYd-vcZxwgq2k1NbVYt22dl17GkNx6jKZv986SKB2MXA/exec';
