@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Users, Search, Download, Lock, Clipboard, Network, Building2, UserCheck, ExternalLink } from 'lucide-react';
+import { Users, Search, Download, Lock, Network, Building2, UserCheck, ExternalLink } from 'lucide-react';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhPNwvim4QnkY-kFHWjR9b-WhYd-vcZxwgq2k1NbVYt22dl17GkNx6jKZv986SKB2MXA/exec';
 const ADMIN_PASSWORD = 'Gesit@123';
@@ -32,7 +32,7 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState('');
-  const [copySuccess, setCopySuccess] = useState(false);
+
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,20 +106,7 @@ export default function Admin() {
     document.body.removeChild(link);
   };
 
-  const copyToClipboard = () => {
-    const lines = [
-      '=== HEALTH TALK ATTENDANCE RECAP ===',
-      `Total: ${data.length} | Offline: ${totalOffline} | Online: ${totalOnline}`,
-      '',
-      ...data.map((r, i) =>
-        `${i + 1}. ${r['Nama Lengkap']} | ${r.Departemen || '-'} | ${r.Company || '-'} | ${r.Kehadiran}`
-      ),
-    ].join('\n');
-    navigator.clipboard.writeText(lines).then(() => {
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
-    });
-  };
+
 
   if (!isAuthenticated) {
     return (
@@ -173,8 +160,7 @@ export default function Admin() {
       {/* Export Actions */}
       <div className="admin-card">
         <div className="export-label">
-          <Clipboard size={14} />
-          EXPORT GOOGLE SHEETS
+          EXPORT
         </div>
         <div className="export-btns">
           <a
@@ -187,10 +173,6 @@ export default function Admin() {
             <ExternalLink size={16} />
             Open Spreadsheet
           </a>
-          <button className="btn-outline-primary" onClick={copyToClipboard}>
-            <Clipboard size={16} />
-            {copySuccess ? 'Copied!' : 'Copy Summary'}
-          </button>
           <button className="btn-primary" onClick={downloadExcel}>
             <Download size={16} />
             Download Excel
