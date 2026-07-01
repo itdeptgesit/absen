@@ -37,3 +37,40 @@
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   }
 }
+
+/* ========================================
+   PAGE ENTRANCE ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up   { animation: fadeInUp  0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in-down { animation: fadeInDown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in      { animation: fadeIn     0.4s ease both; }
+.animate-scale-in     { animation: scaleIn    0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.delay-0   { animation-delay: 0ms; }
+.delay-75  { animation-delay: 75ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-350 { animation-delay: 350ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-550 { animation-delay: 550ms; }

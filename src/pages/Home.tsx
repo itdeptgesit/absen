@@ -154,7 +154,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center font-sans">
       {/* Fixed Glassmorphism Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center px-5 bg-white/70 backdrop-blur-md border-b border-white/40 shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center px-5 bg-white/70 backdrop-blur-md border-b border-white/40 shadow-sm animate-fade-in-down delay-0">
         <div className="flex items-center gap-3">
           <img src="/logo-51x61.png" alt="The Gesit Companies" className="h-7 drop-shadow-sm" />
           <div>
@@ -167,7 +167,7 @@ export default function Home() {
       {/* Page content with top offset for fixed header */}
       <div className="w-full max-w-lg px-4 sm:px-6 pt-20 pb-10 space-y-4">
         {/* Event Details Card */}
-        <Card className="shadow-sm border border-neutral-100 bg-white rounded-2xl overflow-hidden">
+        <Card className="shadow-sm border border-neutral-100 bg-white rounded-2xl overflow-hidden animate-fade-in-up delay-150">
           <CardContent className="p-4">
             {/* Speaker row */}
             <div className="flex items-center gap-3 pb-3 border-b border-neutral-100">
@@ -208,7 +208,7 @@ export default function Home() {
 
         {/* Form Card */}
         {isPastEvent ? (
-          <Card className="shadow-lg border-0 bg-white rounded-2xl text-center overflow-hidden">
+          <Card className="shadow-lg border-0 bg-white rounded-2xl text-center overflow-hidden animate-fade-in-up delay-250">
             <CardContent className="py-16 px-8">
               <div className="w-16 h-16 bg-neutral-50 rounded-full flex items-center justify-center mx-auto mb-4">
                  <Clock className="w-8 h-8 text-neutral-400" />
@@ -218,7 +218,7 @@ export default function Home() {
             </CardContent>
           </Card>
         ) : (
-          <Card className="shadow-lg border-0 bg-white rounded-2xl overflow-hidden">
+          <Card className="shadow-lg border-0 bg-white rounded-2xl overflow-hidden animate-fade-in-up delay-250">
             <CardHeader className="bg-neutral-900 px-6 sm:px-8 py-6">
               <CardTitle className="text-xl font-bold text-white">Attendance Form</CardTitle>
               <CardDescription className="text-neutral-300 font-medium text-sm mt-1">

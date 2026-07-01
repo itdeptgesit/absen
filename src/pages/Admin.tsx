@@ -114,12 +114,12 @@ export default function Admin() {
         {/* Decorative Background Elements */}
         <div className="fixed top-0 left-0 w-full h-96 bg-neutral-900/5 rounded-b-[100%] scale-150 transform -translate-y-1/2 pointer-events-none"></div>
         
-        <div className="mb-8 z-10 text-center">
+        <div className="mb-8 z-10 text-center animate-fade-in-down delay-0">
            <img src="/logo-51x61.png" alt="Logo" className="h-12 mx-auto mb-4 drop-shadow-sm" />
            <h2 className="text-xl font-bold text-neutral-900 tracking-tight">The Gesit Companies</h2>
         </div>
 
-        <Card className="w-full max-w-sm shadow-2xl shadow-neutral-200/50 border border-neutral-100 bg-white rounded-3xl overflow-hidden z-10 relative">
+        <Card className="w-full max-w-sm shadow-2xl shadow-neutral-200/50 border border-neutral-100 bg-white rounded-3xl overflow-hidden z-10 relative animate-scale-in delay-150">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-neutral-900"></div>
           <CardHeader className="text-center pt-10 pb-6 px-8">
             <div className="w-14 h-14 bg-neutral-50 rounded-2xl flex items-center justify-center mx-auto mb-5 border border-neutral-100">
@@ -160,7 +160,7 @@ export default function Admin() {
           </CardContent>
         </Card>
         
-        <div className="mt-12 z-10 text-xs font-semibold text-neutral-400 uppercase tracking-widest">
+        <div className="mt-12 z-10 text-xs font-semibold text-neutral-400 uppercase tracking-widest animate-fade-in delay-450">
            &copy; {new Date().getFullYear()} IT Operation Gesit
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function Admin() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] flex flex-col font-sans">
-      <header className="bg-white border-b border-neutral-200 sticky top-0 z-20 shadow-sm">
+      <header className="bg-white border-b border-neutral-200 sticky top-0 z-20 shadow-sm animate-fade-in-down delay-0">
         <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <img src="/logo-51x61.png" alt="Logo" className="h-8" />
@@ -188,7 +188,7 @@ export default function Admin() {
 
       <main className="flex-1 w-full max-w-7xl mx-auto p-6 lg:p-8 space-y-8">
         
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 animate-fade-in-up delay-75">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-neutral-900">Attendance Overview</h2>
             <p className="text-sm text-neutral-500 mt-1">Manage and monitor participant check-ins in real-time.</p>
@@ -205,7 +205,7 @@ export default function Admin() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up delay-150">
           <Card className="border border-neutral-200 shadow-sm bg-white overflow-hidden rounded-xl transition-shadow hover:shadow-md">
             <CardContent className="p-6">
               <div className="flex justify-between items-center mb-4">
@@ -249,7 +249,7 @@ export default function Admin() {
           </Card>
         </div>
 
-        <Card className="border border-neutral-200 shadow-sm bg-white rounded-xl overflow-hidden">
+        <Card className="border border-neutral-200 shadow-sm bg-white rounded-xl overflow-hidden animate-fade-in-up delay-250">
           <div className="p-5 border-b border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-4 bg-white">
             <div className="relative w-full sm:max-w-md">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
