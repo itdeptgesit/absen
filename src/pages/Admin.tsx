@@ -350,8 +350,9 @@ export default function Admin() {
         </Card>
       </main>
 
-      <footer className="py-8 text-center text-sm text-neutral-400 font-medium">
-        &copy; {new Date().getFullYear()} IT Operation Gesit. All rights reserved.
+      <footer className="py-8 text-center space-y-1">
+        <p className="text-sm text-neutral-400 font-semibold">&copy; {new Date().getFullYear()} The Gesit Companies. All rights reserved.</p>
+        <p className="text-[10px] text-neutral-300 uppercase tracking-widest font-medium">Managed by IT Operation</p>
       </footer>
     </div>
   );

@@ -152,45 +152,55 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center py-12 px-4 sm:px-6 font-sans">
-      <div className="w-full max-w-lg mb-10 text-center">
-        <img src="/logo-51x61.png" alt="The Gesit Companies" className="h-12 mx-auto mb-6 drop-shadow-sm" />
-        <h1 className="text-3xl font-extrabold tracking-tight text-neutral-900 mb-2">Health Talk Attendance</h1>
-        <p className="text-sm font-medium text-neutral-500 uppercase tracking-widest">The Gesit Companies &middot; Kamis, 02 Juli 2026</p>
-      </div>
+    <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center font-sans">
+      {/* Fixed Glassmorphism Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center px-5 bg-white/70 backdrop-blur-md border-b border-white/40 shadow-sm">
+        <div className="flex items-center gap-3">
+          <img src="/logo-51x61.png" alt="The Gesit Companies" className="h-7 drop-shadow-sm" />
+          <div>
+            <p className="text-sm font-extrabold text-neutral-900 leading-tight">Health Talk Attendance</p>
+            <p className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest leading-tight">The Gesit Companies</p>
+          </div>
+        </div>
+      </header>
 
-      <div className="w-full max-w-lg space-y-6">
+      {/* Page content with top offset for fixed header */}
+      <div className="w-full max-w-lg px-4 sm:px-6 pt-20 pb-10 space-y-4">
         {/* Event Details Card */}
-        <Card className="shadow-lg border-0 bg-white rounded-2xl overflow-hidden">
-          <CardContent className="p-0 divide-y divide-neutral-100">
-            <div className="p-5 sm:p-6 flex items-start gap-5 hover:bg-neutral-50/50 transition-colors">
-              <div className="p-2.5 bg-neutral-50 rounded-xl shrink-0">
-                 <Stethoscope className="h-5 w-5 text-neutral-600" />
+        <Card className="shadow-sm border border-neutral-100 bg-white rounded-2xl overflow-hidden">
+          <CardContent className="p-4">
+            {/* Speaker row */}
+            <div className="flex items-center gap-3 pb-3 border-b border-neutral-100">
+              <div className="p-2 bg-neutral-50 rounded-lg shrink-0">
+                <Stethoscope className="h-4 w-4 text-neutral-500" />
               </div>
-              <div>
-                <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-1">Featured Speaker</p>
-                <p className="text-base font-bold text-neutral-900">dr. Cindy Astrella, B.Med.Sci., SpPD</p>
-                <p className="text-sm font-medium text-neutral-500 mt-1">Diabetes & Other Metabolic Diseases</p>
-              </div>
-            </div>
-            <div className="p-5 sm:p-6 flex items-start gap-5 hover:bg-neutral-50/50 transition-colors">
-              <div className="p-2.5 bg-neutral-50 rounded-xl shrink-0">
-                 <Calendar className="h-5 w-5 text-neutral-600" />
-              </div>
-              <div>
-                <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-1">Date & Time</p>
-                <p className="text-base font-bold text-neutral-900">Kamis, 02 Juli 2026</p>
-                <p className="text-sm font-medium text-neutral-500 mt-1">10:00 &ndash; 11:00 WIB</p>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Featured Speaker</p>
+                <p className="text-sm font-bold text-neutral-900 truncate">dr. Cindy Astrella, B.Med.Sci., SpPD</p>
+                <p className="text-xs text-neutral-500">Diabetes & Other Metabolic Diseases</p>
               </div>
             </div>
-            <div className="p-5 sm:p-6 flex items-start gap-5 hover:bg-neutral-50/50 transition-colors">
-              <div className="p-2.5 bg-neutral-50 rounded-xl shrink-0">
-                 <MapPin className="h-5 w-5 text-neutral-600" />
+            {/* Date + Location row side by side */}
+            <div className="flex gap-3 pt-3">
+              <div className="flex items-center gap-2.5 flex-1">
+                <div className="p-2 bg-neutral-50 rounded-lg shrink-0">
+                  <Calendar className="h-4 w-4 text-neutral-500" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Date & Time</p>
+                  <p className="text-xs font-bold text-neutral-900">Kamis, 02 Juli 2026</p>
+                  <p className="text-xs text-neutral-500">10:00 &ndash; 11:00 WIB</p>
+                </div>
               </div>
-              <div>
-                <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-1">Location</p>
-                <p className="text-base font-bold text-neutral-900">Conference Room</p>
-                <p className="text-sm font-medium text-neutral-500 mt-1">Head Office</p>
+              <div className="flex items-center gap-2.5 flex-1">
+                <div className="p-2 bg-neutral-50 rounded-lg shrink-0">
+                  <MapPin className="h-4 w-4 text-neutral-500" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Location</p>
+                  <p className="text-xs font-bold text-neutral-900">Conference Room</p>
+                  <p className="text-xs text-neutral-500">Head Office</p>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -337,8 +347,9 @@ export default function Home() {
         )}
       </div>
       
-      <div className="mt-14 mb-8 text-center text-xs font-semibold text-neutral-400 uppercase tracking-widest">
-        &copy; {new Date().getFullYear()} IT Operation Gesit
+      <div className="mt-6 mb-8 text-center space-y-1">
+        <p className="text-xs font-semibold text-neutral-400">&copy; {new Date().getFullYear()} The Gesit Companies. All rights reserved.</p>
+        <p className="text-[10px] text-neutral-300 uppercase tracking-widest font-medium">Managed by IT Operation</p>
       </div>
     </div>
   );
