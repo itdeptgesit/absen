@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Users, Search, Download, Lock, Clipboard, Network, Building2, UserCheck } from 'lucide-react';
+import { Users, Search, Download, Lock, Clipboard, Network, Building2, UserCheck, ExternalLink } from 'lucide-react';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhPNwvim4QnkY-kFHWjR9b-WhYd-vcZxwgq2k1NbVYt22dl17GkNx6jKZv986SKB2MXA/exec';
 const ADMIN_PASSWORD = 'Gesit@123';
@@ -177,6 +177,16 @@ export default function Admin() {
           EXPORT GOOGLE SHEETS
         </div>
         <div className="export-btns">
+          <a
+            className="btn-outline-primary"
+            href="https://docs.google.com/spreadsheets/d/1FJ6MZagCaH2L3IsrW0uu-dLvQZ-hyYt8kyGiARYLdW4/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', textDecoration: 'none' }}
+          >
+            <ExternalLink size={16} />
+            Open Spreadsheet
+          </a>
           <button className="btn-outline-primary" onClick={copyToClipboard}>
             <Clipboard size={16} />
             {copySuccess ? 'Copied!' : 'Copy Summary'}
