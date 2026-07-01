@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Network, Building2, Users, Monitor, Stethoscope, MapPin, Calendar, Loader2, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
+import { User, Network, Building2, Users, Monitor, Stethoscope, MapPin, Calendar, Loader2, ShieldCheck, Clock } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
