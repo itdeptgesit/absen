@@ -33,8 +33,8 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.nama.trim() || !formData.kehadiran) {
-      setErrorMsg('Please complete all required fields (Name and Attendance).');
+    if (!formData.nama.trim() || !formData.departemen.trim() || !formData.company.trim() || !formData.kehadiran) {
+      setErrorMsg('Harap lengkapi semua kolom yang wajib diisi (Nama, Departemen, Perusahaan, dan Kehadiran).');
       return;
     }
 
@@ -245,7 +245,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-2.5">
-                  <Label htmlFor="departemen" className="text-sm font-bold text-neutral-800">Department <span className="text-slate-400 font-medium text-xs ml-1">(Optional)</span></Label>
+                  <Label htmlFor="departemen" className="text-sm font-bold text-neutral-800">Department <span className="text-red-500">*</span></Label>
                   <div className="relative">
                     <Network className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
                     <Input 
@@ -255,12 +255,13 @@ export default function Home() {
                       className="pl-11 h-12 text-base bg-neutral-50 border-neutral-200 focus-visible:ring-neutral-900 rounded-xl transition-all"
                       value={formData.departemen}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2.5">
-                  <Label htmlFor="company" className="text-sm font-bold text-neutral-800">Company <span className="text-slate-400 font-medium text-xs ml-1">(Optional)</span></Label>
+                  <Label htmlFor="company" className="text-sm font-bold text-neutral-800">Company <span className="text-red-500">*</span></Label>
                   <div className="relative">
                     <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
                     <Input 
@@ -270,6 +271,7 @@ export default function Home() {
                       className="pl-11 h-12 text-base bg-neutral-50 border-neutral-200 focus-visible:ring-neutral-900 rounded-xl transition-all"
                       value={formData.company}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -330,7 +332,7 @@ export default function Home() {
                 <Button 
                   type="submit" 
                   className="w-full h-14 mt-4 text-base font-bold bg-neutral-900 hover:bg-neutral-800 text-white rounded-xl transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
-                  disabled={isSubmitting || !formData.nama || !formData.kehadiran}
+                  disabled={isSubmitting || !formData.nama || !formData.departemen || !formData.company || !formData.kehadiran}
                 >
                   {isSubmitting ? (
                     <>
