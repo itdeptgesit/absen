@@ -21,10 +21,16 @@ export default function Home() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [submittedAt, setSubmittedAt] = useState('');
+  const [touched, setTouched] = useState({ nama: false, departemen: false, company: false });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
   };
 
   const handleRadioChange = (value: string) => {
@@ -33,6 +39,8 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Mark all fields as touched to show inline errors
+    setTouched({ nama: true, departemen: true, company: true });
     if (!formData.nama.trim() || !formData.departemen.trim() || !formData.company.trim() || !formData.kehadiran) {
       setErrorMsg('Harap lengkapi semua kolom yang wajib diisi (Nama, Departemen, Perusahaan, dan Kehadiran).');
       return;
@@ -85,6 +93,7 @@ export default function Home() {
 
   const resetForm = () => {
     setFormData({ nama: '', departemen: '', company: '', kehadiran: '' });
+    setTouched({ nama: false, departemen: false, company: false });
     setIsSuccess(false);
     setErrorMsg('');
   };
@@ -231,49 +240,79 @@ export default function Home() {
                 <div className="space-y-2.5">
                   <Label htmlFor="nama" className="text-sm font-bold text-neutral-800">Full Name <span className="text-red-500">*</span></Label>
                   <div className="relative">
-                    <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
+                    <User className={`absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 ${touched.nama && !formData.nama.trim() ? 'text-red-400' : 'text-neutral-400'}`} />
                     <Input 
                       id="nama"
                       name="nama"
                       placeholder="Enter your full name" 
-                      className="pl-11 h-12 text-base bg-neutral-50 border-neutral-200 focus-visible:ring-neutral-900 rounded-xl transition-all"
+                      className={`pl-11 h-12 text-base bg-neutral-50 rounded-xl transition-all focus-visible:ring-neutral-900 ${
+                        touched.nama && !formData.nama.trim()
+                          ? 'border-red-400 bg-red-50/40 focus-visible:ring-red-400'
+                          : 'border-neutral-200'
+                      }`}
                       value={formData.nama}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       required
                     />
                   </div>
+                  {touched.nama && !formData.nama.trim() && (
+                    <p className="text-xs text-red-500 font-semibold flex items-center gap-1 mt-1">
+                      <span>⚠</span> Nama lengkap wajib diisi.
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2.5">
                   <Label htmlFor="departemen" className="text-sm font-bold text-neutral-800">Department <span className="text-red-500">*</span></Label>
                   <div className="relative">
-                    <Network className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
+                    <Network className={`absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 ${touched.departemen && !formData.departemen.trim() ? 'text-red-400' : 'text-neutral-400'}`} />
                     <Input 
                       id="departemen"
                       name="departemen"
                       placeholder="e.g. HR / Finance" 
-                      className="pl-11 h-12 text-base bg-neutral-50 border-neutral-200 focus-visible:ring-neutral-900 rounded-xl transition-all"
+                      className={`pl-11 h-12 text-base bg-neutral-50 rounded-xl transition-all focus-visible:ring-neutral-900 ${
+                        touched.departemen && !formData.departemen.trim()
+                          ? 'border-red-400 bg-red-50/40 focus-visible:ring-red-400'
+                          : 'border-neutral-200'
+                      }`}
                       value={formData.departemen}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       required
                     />
                   </div>
+                  {touched.departemen && !formData.departemen.trim() && (
+                    <p className="text-xs text-red-500 font-semibold flex items-center gap-1 mt-1">
+                      <span>⚠</span> Departemen wajib diisi.
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2.5">
                   <Label htmlFor="company" className="text-sm font-bold text-neutral-800">Company <span className="text-red-500">*</span></Label>
                   <div className="relative">
-                    <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
+                    <Building2 className={`absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 ${touched.company && !formData.company.trim() ? 'text-red-400' : 'text-neutral-400'}`} />
                     <Input 
                       id="company"
                       name="company"
                       placeholder="e.g. Gesit / Rheem" 
-                      className="pl-11 h-12 text-base bg-neutral-50 border-neutral-200 focus-visible:ring-neutral-900 rounded-xl transition-all"
+                      className={`pl-11 h-12 text-base bg-neutral-50 rounded-xl transition-all focus-visible:ring-neutral-900 ${
+                        touched.company && !formData.company.trim()
+                          ? 'border-red-400 bg-red-50/40 focus-visible:ring-red-400'
+                          : 'border-neutral-200'
+                      }`}
                       value={formData.company}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       required
                     />
                   </div>
+                  {touched.company && !formData.company.trim() && (
+                    <p className="text-xs text-red-500 font-semibold flex items-center gap-1 mt-1">
+                      <span>⚠</span> Perusahaan wajib diisi.
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-3 pt-2">
